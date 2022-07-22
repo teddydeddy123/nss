@@ -1,0 +1,458 @@
+
+@mixin Mobile {
+    @media screen and (max-width: 750px){
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+}
+
+* {
+    max-width: 100%;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+@font-face {
+    font-family: 'Merriweather-Regular';
+    src: url(./fonts/Merriweather-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url(./fonts/Montserrat-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Miller-Display';
+    src: url(./fonts/Miller-Display_30501.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserat-Bold';
+    src: url(./fonts/Montserrat-Bold.ttf) format('truetype');
+}
+p:not(.logo, .footer-up > p, .footer-down > div > p) {
+    background: linear-gradient(hsl(0deg 0% 100%), hsl(0deg 0% 0%), hsl(0deg 0% 100%), hsl(0deg 0% 100%)) fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Merriweather-Regular';
+}
+
+$whiteColor: rgb(245, 245, 245);
+$navPadding: 20px;
+$halfWidth: 50%;
+
+@mixin ParagraphColor {
+    background: linear-gradient(hsl(0deg 0% 100%), hsl(0deg 0% 0%),hsl(0deg 0% 100%)) fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin SectionTextDiv {
+    h3 {
+        font-size: 30px;
+        margin-bottom: 5rem;
+        font-family: 'Montserrat-Bold';
+    }
+    p {
+        width: 22rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+@mixin Button($buttonColor) {
+    width: 11rem;
+        height: 2rem;
+        background: $buttonColor;
+        color: $whiteColor;
+}
+
+@mixin sectionFlexboxText {
+
+    text-align: left;
+    padding-left: 40px;
+    align-self: baseline;
+}
+
+@mixin imgEffect {
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, 0.5, 1),
+        opacity 250ms linear;
+        &:hover {
+            transform: scale(1.01);
+            opacity: .75;}
+    
+}
+
+@mixin ImageSize {
+    max-width: 100%;
+    width: 580px;
+    height: 500px;
+}
+
+@mixin SectionTitle {
+    font-size: 50px;
+    text-align: left;
+    padding-left: 40px;
+
+    
+}
+
+@mixin FlexRow($direction) {
+display: flex;
+flex-direction: $direction;
+}
+
+nav {
+    @include FlexRow(row);
+    @include Mobile();
+    @media screen and (max-width:720px) {
+        align-items: stretch;
+        
+    }
+    max-width: 100%;
+    background-color: black;
+    color: $whiteColor;
+ p {
+    list-style: none;
+    padding: 20px;
+    background-color: rgb(103 46 125);
+    margin: 0;
+    color: $whiteColor;
+ }
+ ul {
+    @include FlexRow(row);
+    list-style: none;
+    column-gap: 50px;
+    @include Mobile();
+    @media screen and (max-width:750px) {
+        padding: 10px;
+        flex-direction: row;
+        column-gap: 30px;
+        
+    }
+
+ li {
+    &:hover {
+        color: rgb(103 46 125);
+        transition:1.2s;
+        
+    }
+    }
+ }
+ input {
+    height: 20px;
+    width: 100px;
+    align-self: center;
+    margin-left: 15%;
+    @media screen and (max-width: 750px) {
+        margin-left: 0;
+        margin-bottom: 20px;
+        
+    }
+ }
+ label {
+    @extend input;
+    margin-left: 20px;
+    width: auto;
+    filter: invert(1);
+    @media screen and(max-width:750px) {
+        display: none;
+        
+    }
+ }
+}
+
+main {
+    @include FlexRow(column);
+    align-items: center;
+    justify-content: center;
+    color: $whiteColor;
+    background: linear-gradient(165deg, #ffffff, #a056d1) fixed;
+    height: 500px;
+    @media screen and (max-width: 750px) {
+        padding: 40px;
+        
+    }
+    h1{
+        margin-bottom: 50px;
+        margin-top: 2px;
+        font-size: 50px;
+        font-family: 'Miller-Display-Regular';
+        
+    }
+    button {
+        @include Button(rgba(rgb(105, 0, 147), .3));
+        border: none;
+        margin-top: 20px;
+        &:hover{
+            background-color: black;
+            
+            
+        }
+
+    }
+}
+
+.section-1 {
+    margin-bottom: 50px;
+
+    .section-1-title {
+        @include SectionTitle();
+    }
+    .section-1-div-2 {
+        @include FlexRow(row);
+        div {
+            &:nth-of-type(1) {
+                width: $halfWidth;
+                color: gray;
+            p {
+                width: 330px;
+                text-align: left;
+                padding-left: 40px;
+                @media screen and (max-width:750px) {
+                    text-align: center;
+                    padding: 0;
+                }
+            }
+            }
+            &:nth-of-type(2) {
+                width: $halfWidth;
+                color: gray;
+            p {
+                text-align: left;
+                width: 500px;
+                @media screen and (max-width:750px) {
+                    text-align: center;
+                    padding: 0;
+                }
+            }
+            }
+        }
+
+    @include Mobile();
+
+    }
+
+}
+
+.section-2-div-1 {
+    @include FlexRow(row);
+    @include Mobile();
+    align-items: center;
+
+ div {
+    width: $halfWidth;
+    &:nth-of-type(1) {
+        padding: 10px;
+    @include SectionTextDiv();
+
+    p{
+    &:nth-of-type(1){
+        font-size: 0.7rem;
+    }
+    }
+    }
+
+    button {
+        @include Button(rgba($color: #3423d0, $alpha: .4));
+        margin-top: 1.5rem;
+        border: none;
+        
+    }
+    }
+    
+ .img-1 {
+   @include ImageSize();
+   padding-right: 40px;
+   @media screen and (max-width:750px) {
+    height: auto;
+}
+ 
+ }}
+
+
+.section-2-div-2 {
+    @extend .section-2-div-1;
+
+div {
+    width: $halfWidth;
+    &:nth-of-type(2){
+        padding: 10px;
+        @include SectionTextDiv(); 
+        p{
+            &:nth-of-type(1){
+                font-size: 0.7rem;
+            }
+            }
+    
+    }
+    button {
+        @include Button(rgba($color: #0037cf, $alpha: .4));
+        margin-top: 1.5rem;
+    }
+
+ .img-2 {
+    @include ImageSize();
+    padding-left: 40px;
+    @media screen and (max-width:750px) {
+        height: auto;
+        padding: 0;
+    }
+ }
+}
+}
+
+.section-2-div-3 {
+    margin-bottom: 70px;
+    h2{@include SectionTitle();
+    font-family: 'Miller-Display'
+    }
+    .section-2-flexbox {
+        @include FlexRow(row);
+        @include Mobile();
+        justify-content: center;
+        align-items: center;
+       div {
+        width: 33%;
+        &:nth-of-type(1){
+            @include sectionFlexboxText();
+            @media screen and (max-width:750px) {
+            align-self: center;
+            text-align: center;
+            padding: 0%;
+            width: auto;
+            }
+        p{
+            width: 220px;
+        }
+        }
+        &:nth-of-type(2) {
+            width: 50%;
+        img {max-width: 100%;}
+        }
+        &:nth-of-type(3) {
+            @include sectionFlexboxText();
+            @media screen and (max-width:750px) {
+                align-self: center;
+                text-align: center;
+                padding: 0%;
+                width: auto;
+                }
+        h4{
+            font-size: 25px;
+            font-family: 'Miller-Display';
+        }
+        span {
+            font-size: 10px;
+            color: rgb(249, 184, 21);
+        }
+        }
+       } 
+    }
+
+}
+
+.gallery {
+    margin-bottom: 60px;
+    @include FlexRow(row);
+div {
+    &:nth-of-type(1) {
+        width: 50%;
+    img {
+        max-width: 100%;
+        height: -webkit-fill-available;
+        @include imgEffect();
+    }
+    }
+}
+.gallery-small {
+    @include FlexRow(row);
+    flex-wrap: wrap;
+    width: 60%;
+    img {
+        width: 50%;
+        height: 50%;
+        @include imgEffect();
+    }
+}
+}
+
+.footer-up {
+    @include FlexRow(column);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: linear-gradient(90deg, rgba(2,157,35,1) 0%, rgba(13,167,85,1) 40%, rgba(0,0,0,1) 100%);
+    padding-bottom: 50px;
+    background: linear-gradient( #f400ff, hsl(3deg 86% 49%), #f45d9b ) fixed;
+    h2{
+        font-size: 40px;
+        font-family: 'Miller-Display';
+    }
+    input {
+        border: 1px solid white;
+    margin-top: 30px;
+    background: bottom;
+    border-radius: 12px;
+    }
+}
+
+.footer-down {
+    padding-top: 90px;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 90px;
+    grid-row-gap: 0px;
+    background-color: rgb(56, 54, 54);
+    color: white;
+    height: 400px;
+    @include Mobile();
+    @media screen and (max-width: 750px) {
+        padding-top: 0;
+        
+    }
+    h2 {
+        margin:0;
+        font-family: 'Miller-Display';
+
+    }
+    div {
+        &:nth-of-type(1){
+            display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 110px;
+    @media screen and (max-width:750px) {
+        padding: 0 0 30px 0;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    p{&:nth-of-type(2){
+        margin: 0;
+    }}
+        }
+    }
+    table{
+        border-spacing: 20px;
+        text-align: left;
+        @media screen and (max-width:750px) {
+        border-spacing: 10px;
+    text-align: left;
+    font-size: 10px;
+}
+
+    }
+   
+}
