@@ -1,4 +1,6 @@
 import React from 'react'
+import facebook from './img/icons8-facebook.svg'
+import instagram from './img/icons8-instagram.svg'
 
 export default function Footer() {
     return (
@@ -55,6 +57,13 @@ export default function Footer() {
                     </tbody>
                 </table>
             </div>
+
+            <div className='mobile-sm'>
+                <a><img src={facebook} alt='fb'/></a>
+                <a><img src={instagram} alt='in'/></a>
+
+            </div>
+
             </div>
 
         </footer>
